@@ -1,0 +1,10 @@
+# IDE and local agents folders
+.gemini/
+.agents/
+.vscode/
+.idea/
+
+# Temp and system files
+*.log
+Thumbs.db
+.DS_Store
