@@ -1,937 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ayuzaa Liver Syrup - Premium single-product Ayurvedic liver care syrup. 100% natural, GMP certified. Support liver detox, digestion, and total wellness.">
-  <title>AYUZAA — Rooted in Nature. Made for You.</title>
-  
-  <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="index.css">
-  
-  <!-- Inline CSS for simple loading animations -->
-  <style>
-    .page-loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #F5EFE1;
-      z-index: 99999;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 16px;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-    .page-loader.fade-out {
-      opacity: 0;
-      visibility: hidden;
-    }
-    .loader-spinner {
-      width: 44px;
-      height: 44px;
-      border: 3px solid #EDE3CC;
-      border-top-color: #2C4A32;
-      border-right-color: #A67C3D;
-      border-radius: 50%;
-      animation: spin 0.9s linear infinite;
-    }
-    .loader-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #2C4A32;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Company — Website Requirement Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f4fbf6',
+                            100: '#e3f5e9',
+                            500: '#2e7d32',
+                            600: '#276a2a',
+                            700: '#1e5321',
+                            900: '#123314',
+                        },
+                        accent: '#d97706' 
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; background-color: #f8fafc; color: #334155; }
+        .step-content { display: none; animation: fadeIn 0.4s ease-out forwards; }
+        .step-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .form-input, .form-textarea, .form-select {
+            width: 100%; padding: 0.75rem 1rem; border-radius: 0.5rem; border: 1px solid #cbd5e1;
+            background: #fff; transition: all 0.2s; outline: none; margin-top: 0.5rem;
+        }
+        .form-input:focus, .form-textarea:focus, .form-select:focus { 
+            border-color: #2e7d32; box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15); 
+        }
+        .form-checkbox, .form-radio {
+            width: 1.25rem; height: 1.25rem; border-radius: 0.25rem; border: 1px solid #cbd5e1;
+            color: #2e7d32; cursor: pointer; accent-color: #2e7d32;
+        }
+        .form-radio { border-radius: 50%; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        .label-text { font-weight: 500; color: #475569; font-size: 0.95rem; }
+        .btn-primary {
+            background: linear-gradient(135deg, #2e7d32 0%, #1e5321 100%);
+            color: white; transition: all 0.3s;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(46, 125, 50, 0.3); }
+        .btn-secondary {
+            background: white; border: 1px solid #cbd5e1; color: #475569; transition: all 0.3s;
+        }
+        .btn-secondary:hover { background: #f1f5f9; border-color: #94a3b8; }
+        
+        .radio-grid, .checkbox-grid { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); margin-top: 0.5rem; }
+        .checkbox-label { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+    </style>
 </head>
-<body>
+<body class="antialiased min-h-screen flex flex-col relative overflow-x-hidden">
+    <!-- background decor -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-100 blur-[120px] z-[-1] opacity-70"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-amber-50 blur-[120px] z-[-1] opacity-70"></div>
 
-  <!-- Page Loader -->
-  <div class="page-loader" id="page-loader">
-    <div class="loader-spinner"></div>
-    <span class="loader-brand">Ayuzaa</span>
-  </div>
-
-  <!-- Sticky Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#home" class="logo">
-        <img src="header.png" alt="AYUZAA Logo">
-      </a>
-
-      <!-- Menu links -->
-      <ul class="nav-links">
-        <li><a href="#benefits">Benefits</a></li>
-        <li><a href="#ingredients">Ingredients</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li class="mobile-nav-ctas">
-          <a href="#" class="btn btn-secondary mobile-nav-login" onclick="alert('Login portal launching...')">Login</a>
-          <a href="#purchase" class="btn btn-gold mobile-nav-buy">Buy Now</a>
-        </li>
-      </ul>
-
-      <!-- Navbar Actions -->
-      <div class="nav-actions">
-        <!-- Search Button (Aesthetic) -->
-        <button class="nav-icon" aria-label="Search">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-        </button>
-
-        <!-- Cart Trigger Button -->
-        <button class="nav-icon" id="cart-icon-btn" aria-label="Open Cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <path d="M16 10a4 4 0 0 1-8 0"></path>
-          </svg>
-          <span class="cart-count" style="display: none;">0</span>
-        </button>
-
-        <!-- Login Button -->
-        <a href="#" class="btn btn-secondary" style="padding: 0.6rem 1.4rem; font-size: 0.8rem; margin-right: 0.4rem;" onclick="alert('Login portal launching...')">Login</a>
-
-        <!-- Quick Buy Link -->
-        <a href="#purchase" class="btn btn-primary" style="padding: 0.6rem 1.4rem; font-size: 0.8rem;">Buy Now</a>
-
-        <!-- Hamburger Icon -->
-        <button class="mobile-menu-btn" aria-label="Toggle Navigation">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <!-- Interactive Background Grid Effect -->
-    <canvas id="hero-shape-grid" class="hero-bg-canvas"></canvas>
-    <div class="container">
-      <!-- Left Editorial Column -->
-      <div class="hero-content fade-up">
-        <span class="hero-tag">Luxury Wellness Ritual</span>
-        <h1>Support Your <br>Liver <span>Naturally.</span></h1>
-        <p>Expert-formulated Ayurvedic herbs to detoxify your liver, improve digestion, and restore everyday vitality.</p>
-        
-        <div class="hero-actions">
-          <a href="#purchase" class="btn btn-gold">Buy Now</a>
-          <a href="#benefits" class="btn btn-secondary">Learn More</a>
+    <div class="max-w-3xl w-full mx-auto px-4 py-8 md:py-12 flex-grow flex flex-col">
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-brand-900 mb-2 tracking-tight">Project Requirements</h1>
+            <p class="text-gray-500 font-medium">Ayurvedic E-Commerce Platform</p>
         </div>
 
-        <div class="hero-badges">
-          <div class="hero-badge-item">
-            <span class="hero-badge-icon" style="display: flex; align-items: center; justify-content: center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z"></path>
-                <path d="M9 22v-4h-4"></path>
-              </svg>
-            </span>
-            <span class="hero-badge-text">100% Ayurvedic</span>
-          </div>
-          <div class="hero-badge-item">
-            <span class="hero-badge-icon" style="display: flex; align-items: center; justify-content: center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </span>
-            <span class="hero-badge-text">GMP Certified</span>
-          </div>
-          <div class="hero-badge-item">
-            <span class="hero-badge-icon" style="display: flex; align-items: center; justify-content: center;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
-            </span>
-            <span class="hero-badge-text">Free Shipping</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Video Showcase Column -->
-      <div class="hero-showcase">
-        <div class="showcase-wrapper">
-          <!-- Floating Video Story Card (Sequencing Playback) -->
-          <div class="hero-video-card" id="hero-video-card">
-            <video id="hero-video" autoplay muted playsinline preload="auto" poster="lifestyle_wellness.png">
-              <source src="hero1.mp4" type="video/mp4">
-            </video>
-            <div class="video-overlay-tag">Ritual Story</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Trust Indicators Ribbon -->
-  <section class="trust-ribbon">
-    <div class="container">
-      <div class="trust-ribbon-grid">
-        <div class="trust-item">
-          <div class="trust-icon" style="display: flex; align-items: center;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z"></path>
-              <path d="M9 22v-4h-4"></path>
-            </svg>
-          </div>
-          <div class="trust-text">
-            <h4>100% Ayurvedic</h4>
-            <p>Traditional herbal formula</p>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon" style="display: flex; align-items: center;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-            </svg>
-          </div>
-          <div class="trust-text">
-            <h4>GMP Certified</h4>
-            <p>Strict quality standards</p>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon" style="display: flex; align-items: center;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              <path d="M2 12h20"></path>
-            </svg>
-          </div>
-          <div class="trust-text">
-            <h4>Made In India</h4>
-            <p>Ethically sourced ingredients</p>
-          </div>
-        </div>
-        <div class="trust-item">
-          <div class="trust-icon" style="display: flex; align-items: center;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.3-6.3l-.7.7M6.7 17.3l-.7.7m12.6 0l-.7-.7M6.7 6.7l-.7-.7M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"></path>
-            </svg>
-          </div>
-          <div class="trust-text">
-            <h4>Clean Label</h4>
-            <p>No artificial chemicals</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Ayuzaa Section -->
-  <section class="section section-dark" id="why-choose">
-    <div class="container">
-      <div class="section-header fade-up" style="gap: 0.5rem;">
-        <span class="section-tag">Pure Formulation</span>
-        <h2>Why Choose <span>Ayuzaa?</span></h2>
-        <p>Whole herbal compounds preserved for complete natural bioavailability.</p>
-      </div>
-
-      <div class="why-grid stagger-container">
-        <!-- Card 1 -->
-        <div class="why-card minimal-card stagger-item stagger-delay-1">
-          <span class="why-card-number">01</span>
-          <div class="why-card-header">
-            <div class="why-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M10 2v7.5L5.6 19.9c-.9 2 .6 4.1 2.8 4.1h7.2c2.2 0 3.7-2.1 2.8-4.1L14 9.5V2"></path>
-                <path d="M8.5 2h7M7 16h10"></path>
-              </svg>
-            </div>
-            <h3>Clinically Sourced</h3>
-          </div>
-          <p>Lab-tested for consistent active strength.</p>
-        </div>
-        <!-- Card 2 -->
-        <div class="why-card minimal-card stagger-item stagger-delay-2">
-          <span class="why-card-number">02</span>
-          <div class="why-card-header">
-            <div class="why-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
-              </svg>
-            </div>
-            <h3>Traditional Decoction</h3>
-          </div>
-          <p>Copper-simmered to preserve organic compounds.</p>
-        </div>
-        <!-- Card 3 -->
-        <div class="why-card minimal-card stagger-item stagger-delay-3">
-          <span class="why-card-number">03</span>
-          <div class="why-card-header">
-            <div class="why-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="m9 12 2 2 4-4"></path>
-              </svg>
-            </div>
-            <h3>No Added Sugars</h3>
-          </div>
-          <p>Zero-glycemic stevia for clean digestion.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section class="section section-bg-alt" id="benefits">
-    <div class="container">
-      <div class="benefits-layout">
-        <!-- Left: Lifestyle photography photo with fallback -->
-        <div class="benefits-images fade-up">
-          <div class="benefits-images-inner">
-            <div class="benefits-img-wrapper">
-              <img src="benefit_restore.png" alt="Ayuzaa Restores Enzymes" class="benefit-showcase-img active">
-              <img src="benefit_digestion.png" alt="Ayuzaa Eases Fat Digestion" class="benefit-showcase-img">
-              <img src="benefit_defense.png" alt="Ayuzaa Heavy Toxins Defense" class="benefit-showcase-img">
-              
-              <svg class="fallback-svg" viewBox="0 0 400 480" fill="none" stroke="#3E6044" stroke-width="1.5">
-                <rect width="100%" height="100%" fill="#F8F7F5" />
-                <path d="M120 180 L140 380 C142 390 150 400 160 400 L240 400 C250 400 258 390 260 380 L280 180 Z" fill="#EAF0EA" stroke="#3E6044" />
-                <path d="M180 260 C210 260 220 230 220 210 C220 210 200 210 180 230 Z" fill="#7EA69E" opacity="0.6" stroke="#3E6044" />
-                <path d="M0 0 L400 300 L400 480 L0 480 Z" fill="#FFFFFF" opacity="0.3" />
-              </svg>
-            </div>
-            
-            <div class="benefits-floating-badge">
-              <h4>Clinical Dose</h4>
-              <p>Saturated with standardized active extract equivalents.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Benefits Cards -->
-        <div class="benefits-list stagger-container">
-          <!-- Benefit Item 1 -->
-          <div class="benefit-item stagger-item stagger-delay-1 active" data-index="0">
-            <div class="benefit-item-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 3.5 1 9.8a7 7 0 0 1-9 8.2z"></path>
-                <path d="M9 22v-4h-4"></path>
-              </svg>
-            </div>
-            <div class="benefit-item-text">
-              <h3>Restores Enzymes</h3>
-              <p>Promotes healthy SGOT & SGPT enzyme levels to optimize liver filtration.</p>
-            </div>
-          </div>
-          <!-- Benefit Item 2 -->
-          <div class="benefit-item stagger-item stagger-delay-2" data-index="1">
-            <div class="benefit-item-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <path d="m9 12 2 2 4-4"></path>
-              </svg>
-            </div>
-            <div class="benefit-item-text">
-              <h3>Eases Fat Digestion</h3>
-              <p>Stimulates natural bile flow to ease heavy digestion after meals.</p>
-            </div>
-          </div>
-          <!-- Benefit Item 3 -->
-          <div class="benefit-item stagger-item stagger-delay-3" data-index="2">
-            <div class="benefit-item-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              </svg>
-            </div>
-            <div class="benefit-item-text">
-              <h3>Heavy Toxins Defense</h3>
-              <p>Neutralizes cell stress caused by alcohol, processed food, and pollutants.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Ingredients Section -->
-  <section class="section" id="ingredients">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-tag">Pure Botanicals</span>
-        <h2>The Power of <span>Seven Herbs</span></h2>
-        <p>Zero binders, artificial colors, or chemical fillers. Saturated with clean, organic bio-active extracts.</p>
-      </div>
-
-      <div class="ingredients-grid stagger-container">
-        <!-- Ingredient 1 -->
-        <div class="ingredient-card minimal-card stagger-item stagger-delay-1">
-          <div class="ingredient-img-container">
-            <div class="image-fallback-container">
-              <img src="bhumi_amla.png" alt="Bhumi Amla" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" stroke="#3E6044" stroke-width="1.2">
-                <rect width="100%" height="100%" fill="#F0F4F0" />
-                <path d="M50 85 C50 60 50 30 50 15" stroke="#3E6044" />
-                <circle cx="38" cy="30" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="36" cy="45" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="38" cy="60" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="40" cy="72" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="62" cy="30" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="64" cy="45" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="62" cy="60" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="60" cy="72" r="4" fill="#7EA69E" opacity="0.3" />
-                <circle cx="50" cy="18" r="3.5" fill="#3E6044" opacity="0.4" />
-              </svg>
-            </div>
-          </div>
-          <div class="ingredient-title-row">
-            <h3>Bhumi Amla</h3>
-            <span class="ingredient-sanskrit">Phyllanthus Niruri</span>
-          </div>
-          <p>Shields liver cells and speeds up natural tissue recovery.</p>
-          <span class="ingredient-benefit-badge">Regeneration</span>
-        </div>
-
-        <!-- Ingredient 2 -->
-        <div class="ingredient-card minimal-card stagger-item stagger-delay-2">
-          <div class="ingredient-img-container">
-            <div class="image-fallback-container">
-              <img src="kutki.png" alt="Kutki" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" stroke="#3E6044" stroke-width="1.2">
-                <rect width="100%" height="100%" fill="#F8F5EE" />
-                <path d="M35 70 C40 60 45 65 52 50 C58 35 48 30 58 20" stroke="#B89047" stroke-dasharray="1 1" />
-                <path d="M32 72 C39 55 42 62 55 45" stroke="#B89047" />
-                <path d="M60 80 C60 55 65 40 68 25" stroke="#3E6044" />
-                <circle cx="68" cy="25" r="3" fill="#B89047" opacity="0.8" />
-                <circle cx="66" cy="33" r="3" fill="#B89047" opacity="0.8" />
-                <circle cx="70" cy="41" r="3" fill="#B89047" opacity="0.8" />
-              </svg>
-            </div>
-          </div>
-          <div class="ingredient-title-row">
-            <h3>Kutki</h3>
-            <span class="ingredient-sanskrit">Picrorhiza Kurroa</span>
-          </div>
-          <p>Stimulates natural digestive enzymes and regulates bile production.</p>
-          <span class="ingredient-benefit-badge">Bile Flow</span>
-        </div>
-
-        <!-- Ingredient 3 -->
-        <div class="ingredient-card minimal-card stagger-item stagger-delay-3">
-          <div class="ingredient-img-container">
-            <div class="image-fallback-container">
-              <img src="kalmegh.png" alt="Kalmegh" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" stroke="#3E6044" stroke-width="1.2">
-                <rect width="100%" height="100%" fill="#FAF2F0" />
-                <path d="M50 85 C50 65 50 35 50 15" stroke="#3E6044" />
-                <path d="M50 30 C30 30 25 45 50 55 C75 45 70 30 50 30 Z" fill="#3E6044" opacity="0.1" />
-                <path d="M50 50 C35 52 30 65 50 72 C70 65 65 52 50 50 Z" fill="#3E6044" opacity="0.1" />
-              </svg>
-            </div>
-          </div>
-          <div class="ingredient-title-row">
-            <h3>Kalmegh</h3>
-            <span class="ingredient-sanskrit">Andrographis Paniculata</span>
-          </div>
-          <p>Reduces cellular inflammation and supports healthy fat metabolism.</p>
-          <span class="ingredient-benefit-badge">Anti-inflammatory</span>
-        </div>
-
-        <!-- Ingredient 4 -->
-        <div class="ingredient-card minimal-card stagger-item stagger-delay-4">
-          <div class="ingredient-img-container">
-            <div class="image-fallback-container">
-              <img src="giloy.png" alt="Giloy" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" stroke="#3E6044" stroke-width="1.2">
-                <rect width="100%" height="100%" fill="#F0F6F5" />
-                <path d="M25 80 C40 80 40 45 55 45 C70 45 75 60 75 70" stroke="#3E6044" />
-                <path d="M55 45 C40 30 30 45 55 18 C80 45 70 30 55 45 Z" fill="#7EA69E" opacity="0.25" />
-              </svg>
-            </div>
-          </div>
-          <div class="ingredient-title-row">
-            <h3>Giloy</h3>
-            <span class="ingredient-sanskrit">Tinospora Cordifolia</span>
-          </div>
-          <p>Purifies the blood and strengthens cellular immune recovery.</p>
-          <span class="ingredient-benefit-badge">Immunity</span>
-        </div>
-
-        <!-- Ingredient 5 -->
-        <div class="ingredient-card minimal-card stagger-item stagger-delay-5">
-          <div class="ingredient-img-container">
-            <div class="image-fallback-container">
-              <img src="tulsi.png" alt="Tulsi" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" stroke="#3E6044" stroke-width="1.2">
-                <rect width="100%" height="100%" fill="#F8F5EE" />
-                <path d="M50 85 L50 20" stroke="#3E6044" />
-                <path d="M50 35 C32 25 35 48 50 60 C65 48 68 25 50 35 Z" fill="#B89047" opacity="0.15" />
-                <path d="M50 55 C38 48 38 65 50 72 C62 65 62 48 50 55 Z" fill="#3E6044" opacity="0.1" />
-              </svg>
-            </div>
-          </div>
-          <div class="ingredient-title-row">
-            <h3>Tulsi</h3>
-            <span class="ingredient-sanskrit">Ocimum Sanctum</span>
-          </div>
-          <p>Fights oxidative cell damage and cleanses metabolic waste.</p>
-          <span class="ingredient-benefit-badge">Antioxidant</span>
-        </div>
-
-        <!-- Ingredient 6 -->
-        <div class="ingredient-card minimal-card stagger-item stagger-delay-6">
-          <div class="ingredient-img-container">
-            <div class="image-fallback-container">
-              <img src="amla.png" alt="Amla" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" stroke="#3E6044" stroke-width="1.2">
-                <rect width="100%" height="100%" fill="#FAF2F0" />
-                <circle cx="42" cy="55" r="18" fill="#7EA69E" opacity="0.2" />
-                <circle cx="62" cy="45" r="16" fill="#3E6044" opacity="0.1" />
-                <path d="M42 37 C42 45 42 55 42 73" stroke="#3E6044" stroke-dasharray="1 1" />
-                <path d="M62 29 C62 37 62 45 62 61" stroke="#3E6044" stroke-dasharray="1 1" />
-              </svg>
-            </div>
-          </div>
-          <div class="ingredient-title-row">
-            <h3>Amla</h3>
-            <span class="ingredient-sanskrit">Emblica Officinalis</span>
-          </div>
-          <p>Rich in Vitamin C to build tissue resilience.</p>
-          <span class="ingredient-benefit-badge">Vitamin C</span>
-        </div>
-
-        <!-- Ingredient 7 -->
-        <div class="ingredient-card minimal-card stagger-item stagger-delay-7">
-          <div class="ingredient-img-container">
-            <div class="image-fallback-container">
-              <img src="ashwagandha.png" alt="Ashwagandha" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 100 100" fill="none" stroke="#3E6044" stroke-width="1.2">
-                <rect width="100%" height="100%" fill="#F0F4F0" />
-                <path d="M30 25 C45 35 40 55 50 80" stroke="#B89047" />
-                <path d="M70 20 C55 35 60 55 50 80" stroke="#B89047" />
-                <path d="M52 42 C45 48 42 58 35 65" stroke="#B89047" stroke-dasharray="1 1" />
-              </svg>
-            </div>
-          </div>
-          <div class="ingredient-title-row">
-            <h3>Ashwagandha</h3>
-            <span class="ingredient-sanskrit">Withania Somnifera</span>
-          </div>
-          <p>Reduces systemic stress to accelerate natural tissue recovery.</p>
-          <span class="ingredient-benefit-badge">Adaptogen</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Product Purchase Grid (Purchase Section) -->
-  <section class="section" id="purchase">
-    <div class="container">
-      <div class="purchase-layout">
-        <!-- Gallery/Image representation column with fallback -->
-        <div class="purchase-gallery fade-up">
-          <div class="purchase-image-container">
-            <!-- Premium Flat D2C trust tags -->
-            <div class="product-tag-badge bestseller">Bestseller</div>
-            <div class="product-tag-badge customers">1,240+ Happy Customers</div>
-            <div class="product-tag-badge stock-warning">Selling Fast</div>
-
-            <div class="image-fallback-container">
-              <img src="purchase_product.png" alt="AYUZAA Product Packaging Pack" id="main-product-img" class="loaded-image" onload="this.classList.add('visible')">
-              
-              <svg class="fallback-svg" viewBox="0 0 300 450" fill="none" stroke="#3E6044" stroke-width="1.5">
-                <!-- Box -->
-                <rect x="40" y="50" width="100" height="340" rx="8" fill="#3E6044" opacity="0.1" stroke="#3E6044" />
-                <line x1="55" y1="90" x2="125" y2="90" stroke="#B89047" stroke-width="2" />
-                <line x1="55" y1="120" x2="125" y2="120" />
-                <!-- Bottle -->
-                <rect x="160" y="120" width="90" height="270" rx="12" fill="#F3F2EE" stroke="#3E6044" />
-                <rect x="190" y="80" width="30" height="40" rx="3" fill="#B89047" stroke="#3E6044" />
-                <rect x="180" y="55" width="50" height="25" rx="4" fill="#2E302E" stroke="#3E6044" />
-              </svg>
-            </div>
-          </div>
-
-          <!-- Product Gallery Thumbnails -->
-          <div class="product-thumbnails">
-            <div class="thumb-item active" data-src="purchase_product.png">
-              <img src="purchase_product.png" alt="Ayuzaa Product Stack">
-            </div>
-            <div class="thumb-item" data-src="benefit_restore.png">
-              <img src="benefit_restore.png" alt="Pure Herbs Mint Setup">
-            </div>
-            <div class="thumb-item" data-src="benefit_digestion.png">
-              <img src="benefit_digestion.png" alt="Syrup Pour macro view">
-            </div>
-            <div class="thumb-item" data-src="benefit_defense.png">
-              <img src="benefit_defense.png" alt="Wellness Morning Routine">
-            </div>
-          </div>
-        </div>
-
-        <!-- Purchase options / selections column -->
-        <div class="purchase-details fade-up">
-          <div class="product-meta">
-            <div class="rating-row rating-trigger-link" style="cursor: default;">
-              <span class="stars">★★★★★</span>
-              <span class="rating-count">4.9 (1,240 Verified Reviews)</span>
-            </div>
-            <h1>Ayuzaa Liver Syrup</h1>
-            <p>Expert-formulated Ayurvedic syrup to restore liver function and support digestion.</p>
-          </div>
-
-          <div class="price-row">
-            <div class="price-main-wrapper">
-              <span class="current-price">₹499</span>
-              <span class="original-price">₹699</span>
-              <span class="discount-badge">29% OFF</span>
-            </div>
-            
-            <div class="delivery-trust-badge">
-              <span class="green-dot"></span>
-              <span class="delivery-text">In Stock — Ships in 24 Hours</span>
-            </div>
-          </div>
-
-          <!-- Package selections -->
-          <div class="bundle-options">
-            <span class="bundle-label">Choose Package Selection</span>
-            
-            <!-- Option 1 -->
-            <div class="bundle-card selected" data-bundle="single">
-              <div class="bundle-left">
-                <div class="bundle-radio"></div>
-                <div class="bundle-info">
-                  <span class="bundle-title">Single Bottle (1 Month Supply)</span>
-                  <span class="bundle-subtitle">Standard wellness course</span>
+        <div class="glass-panel rounded-2xl p-6 md:p-10 w-full relative">
+            <!-- Progress Bar -->
+            <div class="mb-8 relative hidden sm:block">
+                <div class="overflow-hidden h-2.5 mb-4 text-xs flex rounded-full bg-gray-200">
+                    <div id="progress-bar" style="width: 16.66%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-brand-500 transition-all duration-500"></div>
                 </div>
-              </div>
-              <div class="bundle-right">
-                <span class="bundle-price">₹499</span>
-              </div>
-            </div>
-
-            <!-- Option 2 -->
-            <div class="bundle-card" data-bundle="double">
-              <span class="bundle-badge">Best Value</span>
-              <div class="bundle-left">
-                <div class="bundle-radio"></div>
-                <div class="bundle-info">
-                  <span class="bundle-title">2-Pack Value (2 Month Supply)</span>
-                  <span class="bundle-subtitle">Restorative recovery therapy</span>
+                <div class="flex justify-between text-xs font-semibold text-gray-400 px-1" id="step-indicators">
+                    <span class="text-brand-600 transition-colors">1. Basics</span>
+                    <span>2. Branding</span>
+                    <span>3. Products</span>
+                    <span>4. Features</span>
+                    <span>5. Trust</span>
+                    <span>6. Extra</span>
                 </div>
-              </div>
-              <div class="bundle-right">
-                <span class="bundle-price">₹899</span>
-              </div>
-            </div>
-
-            <!-- Option 3 -->
-            <div class="bundle-card" data-bundle="triple">
-              <span class="bundle-badge">Recommended</span>
-              <div class="bundle-left">
-                <div class="bundle-radio"></div>
-                <div class="bundle-info">
-                  <span class="bundle-title">3-Pack Ultimate (3 Month Supply)</span>
-                  <span class="bundle-subtitle">Complete cell rejuvenation course</span>
-                </div>
-              </div>
-              <div class="bundle-right">
-                <span class="bundle-price">₹1199</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Quantity and Cart Action Row -->
-          <div class="quantity-cta-row">
-            <div class="quantity-selector">
-              <button class="quantity-btn" id="qty-minus">-</button>
-              <input type="text" class="quantity-input" id="qty-input" value="1" readonly>
-              <button class="quantity-btn" id="qty-plus">+</button>
             </div>
             
-            <div class="purchase-actions">
-              <button class="btn btn-secondary" id="main-cart-btn">Add To Cart</button>
-              <button class="btn btn-primary btn-gold" id="main-buy-btn">Buy Now</button>
+            <div class="sm:hidden mb-6 text-center text-sm font-semibold text-brand-600 bg-brand-50 py-2 rounded-lg" id="mobile-step-indicator">
+                Step 1 of 6: Business Basics
             </div>
-          </div>
 
-          <!-- Checkout Security seals -->
-          <div class="checkout-trust-tags">
-            <div class="trust-tag-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              </svg>
-              <span>Secure Checkout</span>
-            </div>
-            <div class="trust-tag-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <rect x="1" y="3" width="15" height="13" rx="2" ry="2"></rect>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-                <circle cx="5.5" cy="18.5" r="2.5"></circle>
-                <circle cx="18.5" cy="18.5" r="2.5"></circle>
-              </svg>
-              <span>Free Delivery</span>
-            </div>
-            <div class="trust-tag-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="20 6 9 17 4 12"></polyline>
-              </svg>
-              <span>Cash On Delivery</span>
-            </div>
-          </div>
+            <form id="requirementForm" class="space-y-6" onsubmit="return false;">
+                
+                <!-- STEP 1: Business Basics -->
+                <div class="step-content active" data-step="1" data-section="Business Basics">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Business Basics</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="label-text">1. Company/Brand Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="companyName" required class="form-input" placeholder="e.g. AyurVeda Naturals">
+                        </div>
+                        <div>
+                            <label class="label-text">2. Tagline (if any)</label>
+                            <input type="text" name="tagline" class="form-input" placeholder="e.g. Pure Nature, Pure Health">
+                        </div>
+                        <div>
+                            <label class="label-text">3. Domain Name</label>
+                            <input type="text" name="domain" class="form-input" placeholder="Already purchased? If yes, enter here (e.g. ayur.com)">
+                        </div>
+                        <div>
+                            <label class="label-text">4. Business Address (for footer/contact) <span class="text-red-500">*</span></label>
+                            <textarea name="address" required class="form-textarea" rows="2" placeholder="Full address"></textarea>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="label-text">5. Contact Phone <span class="text-red-500">*</span></label>
+                                <input type="tel" name="phone" required class="form-input" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div>
+                                <label class="label-text">6. WhatsApp Number (for chat widget) <span class="text-red-500">*</span></label>
+                                <input type="tel" name="whatsapp" required class="form-input" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="label-text">7. Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" name="email" required class="form-input" placeholder="contact@brand.com">
+                            </div>
+                            <div>
+                                <label class="label-text">8. GST Number (optional)</label>
+                                <input type="text" name="gst" class="form-input" placeholder="GSTIN">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label-text">9. Founded Year & Brand Story <span class="text-red-500">*</span></label>
+                            <textarea name="brandStory" required class="form-textarea" rows="3" placeholder="Brief history and philosophy of your brand"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Branding -->
+                <div class="step-content" data-step="2" data-section="Branding">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Branding & Identity</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="label-text">10. Logo Status <span class="text-red-500">*</span></label>
+                            <div class="radio-grid mt-2">
+                                <label class="checkbox-label"><input type="radio" name="logoStatus" value="Have Logo (Will share separately)" required class="form-radio"> Have Logo (will share)</label>
+                                <label class="checkbox-label"><input type="radio" name="logoStatus" value="Need new logo designed" class="form-radio"> Need new logo</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label-text">11. Brand Colors Preference <span class="text-red-500">*</span></label>
+                            <input type="text" name="brandColors" required class="form-input" placeholder="e.g. Earthy Green & Gold, or 'AI Decide'">
+                        </div>
+                        <div>
+                            <label class="label-text">12. Existing Website / References</label>
+                            <input type="url" name="existingWebsite" class="form-input" placeholder="Link to current site or competitors you like">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Products -->
+                <div class="step-content" data-step="3" data-section="Products">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Product Catalog</h2>
+                    
+                    <div class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="label-text">13. Total Number of Products <span class="text-red-500">*</span></label>
+                                <input type="number" name="totalProducts" required class="form-input" placeholder="e.g. 25">
+                            </div>
+                            <div>
+                                <label class="label-text">16. Product Images Ready? <span class="text-red-500">*</span></label>
+                                <div class="radio-grid">
+                                    <label class="checkbox-label"><input type="radio" name="imagesReady" value="Yes" required class="form-radio"> Yes</label>
+                                    <label class="checkbox-label"><input type="radio" name="imagesReady" value="No" class="form-radio"> No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label-text">14. Product Categories <span class="text-red-500">*</span></label>
+                            <textarea name="categories" required class="form-textarea" rows="2" placeholder="e.g. Churna, Oils, Skincare, Immunity Boosters"></textarea>
+                        </div>
+                        <div>
+                            <label class="label-text">15. Best-Selling Products</label>
+                            <textarea name="bestsellers" class="form-textarea" rows="2" placeholder="Names of top 3-5 products"></textarea>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="label-text">17. Price Range (Min - Max) <span class="text-red-500">*</span></label>
+                                <input type="text" name="priceRange" required class="form-input" placeholder="e.g. ₹199 - ₹2499">
+                            </div>
+                            <div>
+                                <label class="label-text">18. Bulk / Combo Pricing?</label>
+                                <div class="radio-grid">
+                                    <label class="checkbox-label"><input type="radio" name="comboPricing" value="Yes" class="form-radio"> Yes</label>
+                                    <label class="checkbox-label"><input type="radio" name="comboPricing" value="No" class="form-radio"> No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label-text">19. Upcoming / Launching Soon Products</label>
+                            <textarea name="upcomingProducts" class="form-textarea" rows="2" placeholder="Any new products launching soon?"></textarea>
+                        </div>
+                        <div>
+                            <label class="label-text">20. Need a "Notify Me" feature for upcoming products?</label>
+                            <div class="radio-grid mt-2">
+                                <label class="checkbox-label"><input type="radio" name="notifyFeature" value="Yes" class="form-radio"> Yes</label>
+                                <label class="checkbox-label"><input type="radio" name="notifyFeature" value="No" class="form-radio"> No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 4: E-commerce Functionality -->
+                <div class="step-content" data-step="4" data-section="E-commerce Functionality">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">E-commerce Features</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="label-text">21. Payment Methods Needed <span class="text-red-500">*</span></label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" name="payments" value="Razorpay" class="form-checkbox"> Razorpay</label>
+                                <label class="checkbox-label"><input type="checkbox" name="payments" value="UPI" class="form-checkbox"> UPI</label>
+                                <label class="checkbox-label"><input type="checkbox" name="payments" value="Cards" class="form-checkbox"> Credit/Debit Cards</label>
+                                <label class="checkbox-label"><input type="checkbox" name="payments" value="COD" class="form-checkbox"> Cash on Delivery</label>
+                                <label class="checkbox-label"><input type="checkbox" name="payments" value="NetBanking" class="form-checkbox"> Net Banking</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label-text">22. Shipping Areas <span class="text-red-500">*</span></label>
+                            <div class="radio-grid mt-2">
+                                <label class="checkbox-label"><input type="radio" name="shipping" value="Pan India" required class="form-radio"> Pan India</label>
+                                <label class="checkbox-label"><input type="radio" name="shipping" value="Specific States" class="form-radio"> Specific States only</label>
+                                <label class="checkbox-label"><input type="radio" name="shipping" value="International" class="form-radio"> International</label>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                            <div>
+                                <label class="label-text">23. Coupon System?</label>
+                                <div class="radio-grid mt-2">
+                                    <label class="checkbox-label"><input type="radio" name="coupons" value="Yes" class="form-radio"> Yes</label>
+                                    <label class="checkbox-label"><input type="radio" name="coupons" value="No" class="form-radio"> No</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label-text">24. Customer Login?</label>
+                                <div class="radio-grid mt-2">
+                                    <label class="checkbox-label"><input type="radio" name="login" value="Yes" class="form-radio"> Yes</label>
+                                    <label class="checkbox-label"><input type="radio" name="login" value="No" class="form-radio"> Guest Only</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label-text">25. Order Tracking?</label>
+                                <div class="radio-grid mt-2">
+                                    <label class="checkbox-label"><input type="radio" name="tracking" value="Yes" class="form-radio"> Yes</label>
+                                    <label class="checkbox-label"><input type="radio" name="tracking" value="No" class="form-radio"> No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 5: Content & Trust -->
+                <div class="step-content" data-step="5" data-section="Content & Trust">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Content & Trust Factors</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="label-text">26. Certifications (Display on site)</label>
+                            <div class="checkbox-grid">
+                                <label class="checkbox-label"><input type="checkbox" name="certs" value="AYUSH" class="form-checkbox"> AYUSH Approved</label>
+                                <label class="checkbox-label"><input type="checkbox" name="certs" value="GMP" class="form-checkbox"> GMP Certified</label>
+                                <label class="checkbox-label"><input type="checkbox" name="certs" value="ISO" class="form-checkbox"> ISO Certified</label>
+                                <label class="checkbox-label"><input type="checkbox" name="certs" value="FSSAI" class="form-checkbox"> FSSAI</label>
+                                <label class="checkbox-label"><input type="checkbox" name="certs" value="Vegan" class="form-checkbox"> 100% Vegan</label>
+                            </div>
+                            <input type="text" name="otherCerts" class="form-input mt-2" placeholder="Other certifications (comma separated)">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="label-text">27. Have Customer Reviews? <span class="text-red-500">*</span></label>
+                                <div class="radio-grid mt-2">
+                                    <label class="checkbox-label"><input type="radio" name="reviews" value="Yes" required class="form-radio"> Yes (Will provide)</label>
+                                    <label class="checkbox-label"><input type="radio" name="reviews" value="No" class="form-radio"> No (Not yet)</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="label-text">28. Doctor/Vaidya Endorsement?</label>
+                                <div class="radio-grid mt-2">
+                                    <label class="checkbox-label"><input type="radio" name="endorsement" value="Yes" class="form-radio"> Yes</label>
+                                    <label class="checkbox-label"><input type="radio" name="endorsement" value="No" class="form-radio"> No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label-text">29. Return & Refund Policy <span class="text-red-500">*</span></label>
+                            <div class="radio-grid mt-2">
+                                <label class="checkbox-label"><input type="radio" name="policy" value="Need Template" required class="form-radio"> Need a standard template</label>
+                                <label class="checkbox-label"><input type="radio" name="policy" value="Have Own" class="form-radio"> Have own custom policy</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="label-text">30. Social Media Links</label>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2">
+                                <input type="url" name="socialInsta" class="form-input" placeholder="Instagram URL">
+                                <input type="url" name="socialFb" class="form-input" placeholder="Facebook URL">
+                                <input type="url" name="socialYt" class="form-input" placeholder="YouTube URL">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 6: Extra -->
+                <div class="step-content" data-step="6" data-section="Extra Information">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-6 border-b pb-2">Final Details</h2>
+                    
+                    <div class="space-y-5">
+                        <div>
+                            <label class="label-text">31. Competitor Website(s) You Like</label>
+                            <input type="url" name="competitorUrl" class="form-input" placeholder="https://...">
+                        </div>
+                        <div>
+                            <label class="label-text">32. Specific Requests for Homepage</label>
+                            <textarea name="homepageRequests" class="form-textarea" rows="3" placeholder="e.g. 'Want a large video banner', 'Display 3 top benefits clearly'"></textarea>
+                        </div>
+                        <div>
+                            <label class="label-text">33. Preferred Launch Date <span class="text-red-500">*</span></label>
+                            <input type="date" name="launchDate" required class="form-input" style="max-width: 250px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex justify-between mt-10 pt-6 border-t border-gray-100">
+                    <button type="button" id="prevBtn" class="btn-secondary px-6 py-2.5 rounded-lg font-medium hidden">
+                        &larr; Back
+                    </button>
+                    <div class="ml-auto flex gap-3">
+                        <button type="button" id="nextBtn" class="btn-primary px-8 py-2.5 rounded-lg font-medium shadow-md">
+                            Next Step &rarr;
+                        </button>
+                        <button type="submit" id="submitBtn" class="btn-primary px-8 py-2.5 rounded-lg font-medium shadow-md hidden flex items-center justify-center">
+                            <span id="submitText">Submit Requirements</span>
+                            <svg id="submitLoader" class="animate-spin ml-2 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
     </div>
-  </section>
 
-
-
-  <!-- FAQ Accordion Section -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section-header fade-up">
-        <span class="section-tag">Clarifications</span>
-        <h2>Frequently Asked <span>Questions</span></h2>
-        <p>Find key information regarding consumption, timelines, and safety parameters of Ayuzaa.</p>
-      </div>
-
-      <div class="faq-container fade-up">
-        <!-- FAQ 1 -->
-        <div class="faq-item">
-          <div class="faq-header">
-            <h3>How should I consume Ayuzaa Liver Syrup?</h3>
-            <div class="faq-icon-wrapper">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-gray-900 bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 transform scale-95 transition-transform duration-300 text-center shadow-2xl">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
-          </div>
-          <div class="faq-content">
-            <div class="faq-content-inner">
-              <p>Take 10ml twice daily, 30 minutes before breakfast and dinner. Mix with lukewarm water or swallow directly.</p>
-            </div>
-          </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Submitted!</h3>
+            <p class="text-gray-500 mb-6">Your requirements have been saved successfully.</p>
+            <p class="text-sm text-gray-400">Redirecting to admin panel...</p>
         </div>
-
-        <!-- FAQ 2 -->
-        <div class="faq-item">
-          <div class="faq-header">
-            <h3>Is Ayuzaa syrup safe for diabetic individuals?</h3>
-            <div class="faq-icon-wrapper">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-            </div>
-          </div>
-          <div class="faq-content">
-            <div class="faq-content-inner">
-              <p>Yes. It contains zero added sugars or syrup fillers, sweetened only with non-glycemic organic stevia leaf.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 3 -->
-        <div class="faq-item">
-          <div class="faq-header">
-            <h3>How long does it take to see results?</h3>
-            <div class="faq-icon-wrapper">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-            </div>
-          </div>
-          <div class="faq-content">
-            <div class="faq-content-inner">
-              <p>Digestive comfort starts within 10 days. We recommend a 3-month course for complete tissue rejuvenation.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq-item">
-          <div class="faq-header">
-            <h3>Does it have any side effects?</h3>
-            <div class="faq-icon-wrapper">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-            </div>
-          </div>
-          <div class="faq-content">
-            <div class="faq-content-inner">
-              <p>Yes, it contains zero chemicals or heavy metal additions. If pregnant, consult your doctor before use.</p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Newsletter Signup Section -->
-  <section class="section section-bg-alt" id="newsletter">
-    <div class="container">
-      <div class="newsletter-card fade-up">
-        <div class="newsletter-inner">
-          <span class="section-tag">Ayuzaa Journal</span>
-          <h2>Join the Wellness Inner Circle</h2>
-          <p>Receive monthly articles on seasonal Ayurvedic diets, detox rituals, and early promotional access to product releases.</p>
-          <form class="newsletter-form" id="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="Enter your email address" required aria-label="Email address">
-            <button type="submit" class="btn btn-primary" style="box-shadow: none;">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('requirementForm');
+            const steps = document.querySelectorAll('.step-content');
+            const nextBtn = document.getElementById('nextBtn');
+            const prevBtn = document.getElementById('prevBtn');
+            const submitBtn = document.getElementById('submitBtn');
+            const progressBar = document.getElementById('progress-bar');
+            const stepIndicators = document.getElementById('step-indicators').querySelectorAll('span');
+            const mobileStepIndicator = document.getElementById('mobile-step-indicator');
+            const stepTitles = ["Business Basics", "Branding", "Products", "Features", "Content & Trust", "Extra Details"];
+            
+            let currentStep = 1;
+            const totalSteps = steps.length;
 
-  <!-- Sliding Cart Drawer Container -->
-  <div class="cart-overlay" id="cart-overlay">
-    <div class="cart-drawer">
-      <div class="cart-header">
-        <h3>Shopping Cart</h3>
-        <button class="cart-close-btn" id="cart-close-btn" aria-label="Close Cart">✕</button>
-      </div>
+            const telegramBotToken = '8578634897:AAEp0b9vY2Skr31HpmTzZ1XgH_nlXp2hxLo';
+            const telegramChatId = '8341692819';
 
-      <!-- Scrollable cart items list -->
-      <div class="cart-items-container">
-        <div class="cart-empty-message">
-          <span class="cart-empty-icon" style="display: flex; margin-bottom: 0.5rem; justify-content: center;">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-text-muted);">
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-          </span>
-          <h4>Your cart is empty</h4>
-          <p>Add some Ayuzaa wellness to start your journey.</p>
-        </div>
-      </div>
+            function updateUI() {
+                // Show/hide steps
+                steps.forEach(step => {
+                    step.classList.remove('active');
+                    if(parseInt(step.dataset.step) === currentStep) {
+                        step.classList.add('active');
+                    }
+                });
 
-      <!-- Cart sticky checkout footer -->
-      <div class="cart-footer">
-        <div class="cart-summary-row">
-          <span>Subtotal</span>
-          <span id="cart-subtotal">₹0</span>
-        </div>
-        <div class="cart-summary-row">
-          <span>Shipping</span>
-          <span style="color: var(--color-green); font-weight: 700;">FREE</span>
-        </div>
-        <div class="cart-summary-row total">
-          <span>Estimated Total</span>
-          <span class="total-price" id="cart-total">₹0</span>
-        </div>
-        
-        <p class="cart-footer-note" style="font-size: 0.75rem; text-align: center; font-weight: 500;">Secure shipping options and COD details selected at checkout.</p>
-        
-        <button class="btn btn-primary checkout-btn" onclick="alert('Proceeding to secure checkout payment portal...')">Proceed to Checkout</button>
-      </div>
-    </div>
-  </div>
+                // Update buttons
+                prevBtn.classList.toggle('hidden', currentStep === 1);
+                if (currentStep === totalSteps) {
+                    nextBtn.classList.add('hidden');
+                    submitBtn.classList.remove('hidden');
+                } else {
+                    nextBtn.classList.remove('hidden');
+                    submitBtn.classList.add('hidden');
+                }
 
-  <!-- Elegant Light Footer -->
-  <footer class="footer footer-dark" id="contact">
-    <div class="container">
-      <div class="footer-top-strip">
-        <div class="footer-brand">
-          <a href="#home" class="logo">
-            <img src="header.png" alt="AYUZAA Logo">
-          </a>
-          <p>Traditional Ayurvedic wisdom refined for high-performance modern life.</p>
-        </div>
-        
-        <div class="footer-links-row">
-          <a href="#home">Home</a>
-          <a href="#benefits">Benefits</a>
-          <a href="#ingredients">Ingredients</a>
-          <a href="#purchase">Buy Syrup</a>
-          <a href="#faq">FAQ</a>
-        </div>
+                // Update Progress Bar & Indicators
+                const progressPercentage = (currentStep / totalSteps) * 100;
+                progressBar.style.width = `${progressPercentage}%`;
+                
+                stepIndicators.forEach((ind, idx) => {
+                    if (idx < currentStep) {
+                        ind.classList.add('text-brand-600');
+                        ind.classList.remove('text-gray-400');
+                    } else {
+                        ind.classList.remove('text-brand-600');
+                        ind.classList.add('text-gray-400');
+                    }
+                });
 
-        <div class="social-links">
-          <a href="#" class="social-icon" aria-label="Instagram">IG</a>
-          <a href="#" class="social-icon" aria-label="Facebook">FB</a>
-          <a href="#" class="social-icon" aria-label="Twitter">TW</a>
-        </div>
-      </div>
+                mobileStepIndicator.innerText = `Step ${currentStep} of ${totalSteps}: ${stepTitles[currentStep-1]}`;
+            }
 
-      <div class="footer-middle-strip">
-        <div class="footer-contact-inline">
-          <span><strong>Email:</strong> support@ayuzaa.com</span>
-          <span class="separator-bullet">•</span>
-          <span><strong>Phone:</strong> +91 11 4050 9000</span>
-          <span class="separator-bullet">•</span>
-          <span><strong>Office:</strong> New Delhi, India</span>
-        </div>
-      </div>
+            function validateCurrentStep() {
+                const currentStepEl = document.querySelector(`.step-content[data-step="${currentStep}"]`);
+                const inputs = currentStepEl.querySelectorAll('input[required], textarea[required], select[required]');
+                let isValid = true;
 
-      <!-- Bottom border line and payments info -->
-      <div class="footer-bottom">
-        <p>&copy; 2026 AYUZAA. All Rights Reserved. Devised for restorative wellness.</p>
-        
-        <div class="payment-methods">
-          <!-- UPI SVG -->
-          <svg viewBox="0 0 48 32" width="38" height="24" class="payment-logo-card" aria-label="UPI">
-            <rect width="48" height="32" rx="4" fill="#FFFFFF"/>
-            <path d="M14 22.5h2.5v-6.2H14v6.2zm5.5-6.2c-1.2 0-2 .6-2.5 1.5v-1.5h-2.5v8.5h2.5v-4.5c0-1.2.8-2 1.8-2s1.8.8 1.8 2v4.5h2.5v-5c0-2-1.5-3.5-3.5-3.5zm7 0h-2.5v8.5H27v-3h2.5c1.8 0 3-1.2 3-2.7s-1.2-2.8-3-2.8zm0 3.5H27v-1.5h2.5c.5 0 .8.3.8.7s-.3.8-.8.8z" fill="#2E1C75"/>
-            <path d="M33 22.5l2.5-10h1.8l-2.5 10h-1.8zm3.5-10h3.5v2.2h-3.5z" fill="#0FA54A"/>
-          </svg>
-          <!-- Visa SVG -->
-          <svg viewBox="0 0 48 32" width="38" height="24" class="payment-logo-card" aria-label="Visa">
-            <rect width="48" height="32" rx="4" fill="#FFFFFF"/>
-            <path d="M18.8 10.5l-2.6 11.2h-2.5l2.6-11.2h2.5zm11.5 0l-2.1 8.2-.9-4.2c-.2-1-.8-1.6-1.7-2.1l-1.9-.8v-.1h3.3l.7 3.5 2.1-5.3h2.6l-3.3 11.2H28l3.1-11.2h2.2zm7.1 0l-2 11.2h-2.1l2-11.2h2.1zm-18.7 0c-.8 0-1.4.4-1.7 1.1l-3.3 8.1 2.3.1c.5 0 1-.3 1.2-.8l.4-1.1h2.8c.1.5.3 1.1.3 1.1h2.2l-2-8.5c-.2-.6-.8-.9-1.5-.9zm.2 2.2l.9 2.5h-1.9l1-2.5z" fill="#1A1F71"/>
-          </svg>
-          <!-- Mastercard SVG -->
-          <svg viewBox="0 0 48 32" width="38" height="24" class="payment-logo-card" aria-label="Mastercard">
-            <rect width="48" height="32" rx="4" fill="#FFFFFF"/>
-            <circle cx="20" cy="16" r="9" fill="#EB001B" opacity="0.95"/>
-            <circle cx="28" cy="16" r="9" fill="#F79E1B" opacity="0.95"/>
-            <path d="M24 10.6c1.3 1.4 2 3.3 2 5.4s-.7 4-2 5.4c-1.3-1.4-2-3.3-2-5.4s.7-4 2-5.4z" fill="#FF5F00"/>
-          </svg>
-          <!-- COD Card SVG -->
-          <svg viewBox="0 0 48 32" width="38" height="24" class="payment-logo-card" aria-label="COD">
-            <rect width="48" height="32" rx="4" fill="#FFFFFF"/>
-            <path d="M34 14h-3v-3a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v10h2a3 3 0 0 0 6 0h10a3 3 0 0 0 6 0h2v-4.5l-3-2.5zM15 22.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm17 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" fill="#2C4A32"/>
-            <text x="13.5" y="17.5" font-family="sans-serif" font-weight="900" font-size="8.5" fill="#2C4A32" letter-spacing="-0.5">COD</text>
-          </svg>
-        </div>
-      </div>
-    </div>
-  </footer>
+                // Reset borders
+                currentStepEl.querySelectorAll('.border-red-500').forEach(el => el.classList.remove('border-red-500'));
 
+                inputs.forEach(input => {
+                    if (input.type === 'radio' || input.type === 'checkbox') {
+                        const name = input.name;
+                        const checked = currentStepEl.querySelector(`input[name="${name}"]:checked`);
+                        if (!checked) {
+                            isValid = false;
+                            const grid = input.closest('.radio-grid') || input.closest('.checkbox-grid');
+                            if(grid) grid.classList.add('border', 'border-red-500', 'p-2', 'rounded');
+                        }
+                    } else if (!input.value.trim()) {
+                        isValid = false;
+                        input.classList.add('border-red-500');
+                    }
+                });
 
+                if(!isValid) {
+                    // Small shake animation on form if invalid
+                    form.classList.add('animate-pulse');
+                    setTimeout(() => form.classList.remove('animate-pulse'), 500);
+                }
 
-  <!-- Script Files -->
-  <script src="index.js"></script>
-  <script>
-    // Remove Page Loader once loaded
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('page-loader');
-      if (loader) {
-        loader.classList.add('fade-out');
-        setTimeout(() => loader.remove(), 400);
-      }
-    });
-  </script>
+                return isValid;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (validateCurrentStep()) {
+                    currentStep++;
+                    updateUI();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentStep--;
+                updateUI();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Handle Checkbox Arrays correctly
+            function getFormData() {
+                const formData = new FormData(form);
+                const data = {};
+                
+                // Initialize structure based on sections
+                steps.forEach(step => {
+                    data[step.dataset.section] = {};
+                });
+
+                // Group inputs by their DOM section
+                const allInputs = form.querySelectorAll('input, textarea, select');
+                allInputs.forEach(input => {
+                    if(!input.name) return;
+                    const sectionName = input.closest('.step-content').dataset.section;
+                    
+                    if (input.type === 'checkbox') {
+                        if (!data[sectionName][input.name]) data[sectionName][input.name] = [];
+                        if (input.checked) data[sectionName][input.name].push(input.value);
+                    } else if (input.type === 'radio') {
+                        if (input.checked) data[sectionName][input.name] = input.value;
+                    } else {
+                        data[sectionName][input.name] = input.value;
+                    }
+                });
+
+                // Cleanup empty arrays/strings
+                return data;
+            }
+
+            async function sendToTelegram(dataObj) {
+                let message = "🌿 *New Ayurvedic Website Requirement* 🌿\n\n";
+                for(const [section, answers] of Object.entries(dataObj)) {
+                    message += `*--- ${section} ---*\n`;
+                    for(const [key, val] of Object.entries(answers)) {
+                        if (Array.isArray(val) && val.length > 0) {
+                            message += `*${key}:* ${val.join(', ')}\n`;
+                        } else if (!Array.isArray(val) && val) {
+                            message += `*${key}:* ${val}\n`;
+                        }
+                    }
+                    message += `\n`;
+                }
+                
+                try {
+                    await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: telegramChatId,
+                            text: message.substring(0, 4000), // Telegram limit
+                            parse_mode: 'Markdown'
+                        })
+                    });
+                } catch(err) {
+                    console.error("Telegram error:", err);
+                }
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (!validateCurrentStep()) return;
+
+                const submitLoader = document.getElementById('submitLoader');
+                const submitText = document.getElementById('submitText');
+                
+                submitBtn.disabled = true;
+                submitLoader.classList.remove('hidden');
+                submitText.innerText = 'Submitting...';
+
+                const data = getFormData();
+                
+                // Save to localStorage
+                localStorage.setItem('ayurvedicClientData', JSON.stringify({
+                    timestamp: new Date().toISOString(),
+                    data: data
+                }));
+
+                // Send to Telegram
+                await sendToTelegram(data);
+
+                // Show success modal
+                const modal = document.getElementById('successModal');
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modal.querySelector('div').classList.remove('scale-95');
+                }, 10);
+
+                // Redirect after 2s
+                setTimeout(() => {
+                    window.location.href = 'admin.html';
+                }, 2000);
+            });
+
+            // Initialize UI
+            updateUI();
+        });
+    </script>
 </body>
 </html>
