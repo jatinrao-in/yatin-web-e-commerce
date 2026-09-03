@@ -1,0 +1,252 @@
+<section class="shopify-section spaced-section Instagram-section" id="shopify-section-template--16126546411609__testimonial_section_8d9ziq">
+<link href="//cha-time-demo.myshopify.com/cdn/shop/t/3/assets/testimonial-section.css?v=38923268089899387391724219432" media="all" rel="stylesheet" type="text/css"/>
+<link href="//cha-time-demo.myshopify.com/cdn/shop/t/3/assets/section-slider-button-controls.css?v=118419071153695351941724067807" media="all" rel="stylesheet" type="text/css"/>
+<link href="//cha-time-demo.myshopify.com/cdn/shop/t/3/assets/component-rte.css?v=126799198150578542651723989398" media="print" onload="this.media='all'" rel="stylesheet"/>
+<noscript>
+          &lt;link href="//ayuzaa-demo.myshopify.com/cdn/shop/t/3/assets/component-rte.css?v=126799198150578542651723989398" rel="stylesheet" type="text/css" media="all" /&gt;
+        </noscript>
+<style data-shopify="">
+          .rating {
+       display: inline-block;
+       margin: 0;
+     }
+     .testimonial__card--review {
+       margin-bottom: 15px;
+     }
+    .testimonial__card--review .rating-star {
+      --letter-spacing: .3;
+      --font-size: 2.2;
+    }
+
+    .rating-star {
+     --percent: calc(
+       (
+           var(--rating) / var(--rating-max) + var(--rating-decimal) *
+             var(--font-size) /
+             (var(--rating-max) * (var(--letter-spacing) + var(--font-size)))
+         ) * 100%
+     );
+     letter-spacing: calc(var(--letter-spacing) * 1rem);
+     font-size: calc(var(--font-size) * 1rem);
+     line-height: 1;
+     display: inline-block;
+     font-family: Times;
+     margin: 0;
+   }
+
+   .rating-star::before {
+     content: '★★★★★';
+     background: linear-gradient(
+       90deg,
+       var(--color-icon) var(--percent),
+       rgba(var(--color-foreground), 0.15) var(--percent)
+     );
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+   }
+
+  .rating {
+     display: inline-block;
+     margin: 0;
+   }
+
+   .rating-text {
+     display: none;
+   }
+
+   .rating-count {
+     display: inline-block;
+     margin: 0;
+   }
+
+   @media (forced-colors: active) {
+     .rating {
+       display: none;
+     }
+
+     .rating-text {
+       display: block;
+     }
+   }.section-template--16126546411609__testimonial_section_8d9ziq-padding {
+      padding-top: 60px;
+      padding-bottom: 40px;
+    }
+
+    @media screen and (min-width: 991px) {
+      .section-template--16126546411609__testimonial_section_8d9ziq-padding {
+        padding-top: 90px;
+        padding-bottom: 95px;
+      }
+    }.section-template--16126546411609__testimonial_section_8d9ziq-padding {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    @media screen and (min-width: 750px) {
+      .section-template--16126546411609__testimonial_section_8d9ziq-padding {
+        padding-top: 90px;
+        padding-bottom: 95px;
+      }
+    }
+    #section__template--16126546411609__testimonial_section_8d9ziq.collection__list--slider.slider--controls--button{
+       --slider-button-background: ;
+       --slider-button-color: ;
+    }
+        </style>
+<div class="testimonial-wrapper section-template--16126546411609__testimonial_section_8d9ziq-padding color-background-1 gradient" data-autoplay="false" data-autoplay-time="3000" data-section-id="template--16126546411609__testimonial_section_8d9ziq" data-section-type="product-slider" data-show-extra-large="3" data-show-mobile="1" data-slider-enable="true" data-slider-loop="true">
+<div class="container">
+<div class="slider__heading--wrapper">
+<div class="section-heading-wrapper mb-50">
+<div class="section-heading text-center">
+<span class="section-heading__sub_title">                  90,000+ Reviews
+</span>
+<h2 class="section-heading__title h1">
+                    America's #1 Selling Farm-Direct
+                    <br/>
+                    Organic China Matcha
+                  </h2>
+</div>
+<div class="header-right-side-action-wrap">
+<div class="testimonial__collection--slider slider--controls--button mt-30">
+</div>
+</div>
+</div>
+</div>
+<div class="collection-list productSlider swiper">
+<div class="swiper-wrapper">
+<div class="testimonial-list--item grid__item swiper-slide">
+<div class="testimonial-item single-testimonial-single-item">
+<div class="single-testimonial-single-item__content">
+<div class="testimonial__card--review">
+<div class="client-info-wrap">
+<div class="client-avator">
+<div class="media client-avator__media">
+<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti1.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti1.png?v=1724216361&amp;width=46 46w," width="120"/>
+</div>
+</div>
+<div class="client-info">
+<p class="name h6">
+                              Willie Bradley
+                            </p>
+<span class="designation">                            Founder
+</span>
+</div>
+</div>
+</div>
+<div class="text h3">
+                        Cha Time Make Amazing Ayurvedic Drink Products
+                      </div>
+<p class="text">
+                        “The place is clean and new which is great, and they have comfortable couches to sit at. A perfect place to visit on a rainy autumn Sunday. Reasonably priced too. We’ll definitely be coming back!”
+                      </p>
+<div class="testimonial__card--review">
+<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
+<span aria-hidden="true" class="rating-star" style="--rating: 4; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial-list--item grid__item swiper-slide">
+<div class="testimonial-item single-testimonial-single-item">
+<div class="single-testimonial-single-item__content">
+<div class="testimonial__card--review">
+<div class="client-info-wrap">
+<div class="client-avator">
+<div class="media client-avator__media">
+<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti2.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti2.png?v=1724216361&amp;width=46 46w," width="120"/>
+</div>
+</div>
+<div class="client-info">
+<p class="name h6">
+                              Wendy Rose
+                            </p>
+<span class="designation">                            Product Manager
+</span>
+</div>
+</div>
+</div>
+<div class="text h3">
+                        Wonderful Taste &amp; Perfect Quality Ayurvedic Drink
+                      </div>
+<p class="text">
+                        “Fast delivery, excellent packaging and high quality products, what else can one wish for. The ayurvedic drink has a lovely flavour. This is a must go place if you are interested in or want to discover ayurvedic drinks!
+                      </p>
+<div class="testimonial__card--review">
+<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
+<span aria-hidden="true" class="rating-star" style="--rating: 5; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial-list--item grid__item swiper-slide">
+<div class="testimonial-item single-testimonial-single-item">
+<div class="single-testimonial-single-item__content">
+<div class="testimonial__card--review">
+<div class="client-info-wrap">
+<div class="client-avator">
+<div class="media client-avator__media">
+<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti4.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti4.png?v=1724216361&amp;width=46 46w," width="120"/>
+</div>
+</div>
+<div class="client-info">
+<p class="name h6">
+                              Kate Platonova
+                            </p>
+<span class="designation">                            Co-founder
+</span>
+</div>
+</div>
+</div>
+<div class="text h3">
+                        Gratitude for Producing Delicious Ayurvedic Drink
+                      </div>
+<p class="text">
+                        “A perfect place to visit on a rainy autumn Sunday. The place is clean and new which is great, and they have comfortable couches to sit at. Reasonably priced too. We’ll definitely be coming back!”
+                      </p>
+<div class="testimonial__card--review">
+<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
+<span aria-hidden="true" class="rating-star" style="--rating: 5; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="testimonial-list--item grid__item swiper-slide">
+<div class="testimonial-item single-testimonial-single-item">
+<div class="single-testimonial-single-item__content">
+<div class="testimonial__card--review">
+<div class="client-info-wrap">
+<div class="client-avator">
+<div class="media client-avator__media">
+<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti3.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti3.png?v=1724216361&amp;width=46 46w," width="120"/>
+</div>
+</div>
+<div class="client-info">
+<p class="name h6">
+                              Linda Reid
+                            </p>
+<span class="designation">                            Ux Designer
+</span>
+</div>
+</div>
+</div>
+<div class="text h3">
+                        Gratitude for Producing Delicious Ayurvedic Drink
+                      </div>
+<p class="text">
+                        “This smart home assistant has become very important part of my daily routine. From managing my schedule and setting reminders to controlling smart home devices and answering questions.”
+                      </p>
+<div class="testimonial__card--review">
+<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
+<span aria-hidden="true" class="rating-star" style="--rating: 5; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
