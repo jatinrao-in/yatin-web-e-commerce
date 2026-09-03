@@ -801,7 +801,6 @@ first.parentNode.insertBefore(script, first);
 <meta content="492dbd5c-2fb3-458c-9dd5-069ad65fdd84" data-expiration="1819921907000" name="shopify-y"/>
 <meta content="33be4aa6-0ec2-41c1-9d10-f2d6a8129e82" data-expiration="1788366107000" name="shopify-s"/>
 <meta content="f" name="new-cookie-storage-activated"/>
-
 <style id="ayuzaa-responsive-css">
 /* ========= AYUZAA RESPONSIVE CSS - DIE HARD ========= */
 
@@ -999,7 +998,6 @@ img, video, iframe, embed, object { max-width: 100% !important; height: auto !im
     .header, .footer, .slideshow__wrapper { display: none !important; }
 }
 </style>
-
 </head>
 <body>
 <a class="skip-to-content-link button visually-hidden" href="#MainContent">    Skip to content
@@ -2499,254 +2497,177 @@ img, video, iframe, embed, object { max-width: 100% !important; height: auto !im
 </div>
 </div>
 </section>
-<section class="shopify-section spaced-section Instagram-section" id="shopify-section-template--16126546411609__testimonial_section_8d9ziq">
-<link href="//cha-time-demo.myshopify.com/cdn/shop/t/3/assets/testimonial-section.css?v=38923268089899387391724219432" media="all" rel="stylesheet" type="text/css"/>
-<link href="//cha-time-demo.myshopify.com/cdn/shop/t/3/assets/section-slider-button-controls.css?v=118419071153695351941724067807" media="all" rel="stylesheet" type="text/css"/>
-<link href="//cha-time-demo.myshopify.com/cdn/shop/t/3/assets/component-rte.css?v=126799198150578542651723989398" media="print" onload="this.media='all'" rel="stylesheet"/>
-<noscript>
-          &lt;link href="//ayuzaa-demo.myshopify.com/cdn/shop/t/3/assets/component-rte.css?v=126799198150578542651723989398" rel="stylesheet" type="text/css" media="all" /&gt;
-        </noscript>
-<style data-shopify="">
-          .rating {
-       display: inline-block;
-       margin: 0;
-     }
-     .testimonial__card--review {
-       margin-bottom: 15px;
-     }
-    .testimonial__card--review .rating-star {
-      --letter-spacing: .3;
-      --font-size: 2.2;
+
+<section class="shopify-section spaced-section" id="ayuzaa-reviews-section">
+<style>
+/* ===== AYUZAA REVIEWS SECTION ===== */
+.ayuzaa-reviews {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #f8faf8 0%, #ffffff 100%);
+}
+.ayuzaa-reviews .reviews-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.ayuzaa-reviews .reviews-header .sub-title {
+    display: inline-block;
+    color: #27ae60;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+.ayuzaa-reviews .reviews-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin: 0;
+}
+.ayuzaa-reviews .reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.ayuzaa-review-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 35px 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border: 1px solid #eef2ee;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.ayuzaa-review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+}
+.ayuzaa-review-card .review-stars {
+    color: #f39c12;
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+    letter-spacing: 2px;
+}
+.ayuzaa-review-card .review-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a252f;
+    margin-bottom: 14px;
+}
+.ayuzaa-review-card .review-text {
+    color: #5a6268;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    flex-grow: 1;
+    margin-bottom: 24px;
+}
+.ayuzaa-review-card .reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border-top: 1px solid #eef2ee;
+    padding-top: 20px;
+}
+.ayuzaa-review-card .reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+.ayuzaa-review-card .reviewer-name {
+    font-weight: 700;
+    color: #1a252f;
+    font-size: 1rem;
+    margin: 0;
+}
+.ayuzaa-review-card .reviewer-label {
+    color: #8a9198;
+    font-size: 0.82rem;
+    margin: 2px 0 0 0;
+}
+
+/* TABLET */
+@media (max-width: 991px) {
+    .ayuzaa-reviews { padding: 50px 0; }
+    .ayuzaa-reviews .reviews-header h2 { font-size: 1.9rem; }
+    .ayuzaa-reviews .reviews-container { gap: 20px; padding: 0 15px; }
+    .ayuzaa-review-card { padding: 25px 22px; }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .ayuzaa-reviews .reviews-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 16px;
     }
-
-    .rating-star {
-     --percent: calc(
-       (
-           var(--rating) / var(--rating-max) + var(--rating-decimal) *
-             var(--font-size) /
-             (var(--rating-max) * (var(--letter-spacing) + var(--font-size)))
-         ) * 100%
-     );
-     letter-spacing: calc(var(--letter-spacing) * 1rem);
-     font-size: calc(var(--font-size) * 1rem);
-     line-height: 1;
-     display: inline-block;
-     font-family: Times;
-     margin: 0;
-   }
-
-   .rating-star::before {
-     content: '★★★★★';
-     background: linear-gradient(
-       90deg,
-       var(--color-icon) var(--percent),
-       rgba(var(--color-foreground), 0.15) var(--percent)
-     );
-     -webkit-background-clip: text; background-clip: text;
-     -webkit-text-fill-color: transparent;
-   }
-
-  .rating {
-     display: inline-block;
-     margin: 0;
-   }
-
-   .rating-text {
-     display: none;
-   }
-
-   .rating-count {
-     display: inline-block;
-     margin: 0;
-   }
-
-   @media (forced-colors: active) {
-     .rating {
-       display: none;
-     }
-
-     .rating-text {
-       display: block;
-     }
-   }.section-template--16126546411609__testimonial_section_8d9ziq-padding {
-      padding-top: 60px;
-      padding-bottom: 40px;
-    }
-
-    @media screen and (min-width: 991px) {
-      .section-template--16126546411609__testimonial_section_8d9ziq-padding {
-        padding-top: 90px;
-        padding-bottom: 95px;
-      }
-    }.section-template--16126546411609__testimonial_section_8d9ziq-padding {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    @media screen and (min-width: 750px) {
-      .section-template--16126546411609__testimonial_section_8d9ziq-padding {
-        padding-top: 90px;
-        padding-bottom: 95px;
-      }
-    }
-    #section__template--16126546411609__testimonial_section_8d9ziq.collection__list--slider.slider--controls--button{
-       --slider-button-background: ;
-       --slider-button-color: ;
-    }
-        </style>
-<div class="testimonial-wrapper section-template--16126546411609__testimonial_section_8d9ziq-padding color-background-1 gradient" data-autoplay="false" data-autoplay-time="3000" data-section-id="template--16126546411609__testimonial_section_8d9ziq" data-section-type="product-slider" data-show-extra-large="3" data-show-mobile="1" data-slider-enable="true" data-slider-loop="true">
-<div class="container">
-<div class="slider__heading--wrapper">
-<div class="section-heading-wrapper mb-50">
-<div class="section-heading text-center">
-<span class="section-heading__sub_title">                  90,000+ Reviews
-</span>
-<h2 class="section-heading__title h1">India's Premier Ayurvedic Liver Care Solution</h2>
+    .ayuzaa-reviews .reviews-header h2 { font-size: 1.5rem; }
+    .ayuzaa-reviews { padding: 40px 0; }
+    .ayuzaa-review-card { padding: 24px 20px; }
+}
+</style>
+<div class="ayuzaa-reviews">
+<div class="reviews-header">
+<span class="sub-title">90,000+ Reviews</span>
+<h2>What Our Customers Say</h2>
 </div>
-<div class="header-right-side-action-wrap">
-<div class="testimonial__collection--slider slider--controls--button mt-30">
+<div class="reviews-container">
+<!-- Review 1 -->
+<div class="ayuzaa-review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-title">Life-Changing Ayurvedic Product!</div>
+<p class="review-text">"I've been using Liv Kavach for 3 months now and the results are incredible. My liver health markers have improved significantly. The quality of this Ayurvedic formulation is unmatched. Highly recommended for anyone looking to support their liver naturally!"</p>
+<div class="reviewer-info">
+<div class="reviewer-avatar">RS</div>
+<div>
+<p class="reviewer-name">Rajesh Sharma</p>
+<p class="reviewer-label">Verified Buyer</p>
 </div>
 </div>
 </div>
-</div>
-<div class="collection-list d-flex justify-content-center">
-<div class="d-flex justify-content-center w-100">
-<div class="col-md-4 col-12">
-<div class="testimonial-item single-testimonial-single-item">
-<div class="single-testimonial-single-item__content">
-<div class="testimonial__card--review">
-<div class="client-info-wrap">
-<div class="client-avator">
-<div class="media client-avator__media">
-<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti1.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti1.png?v=1724216361&amp;width=46 46w," width="120"/>
-</div>
-</div>
-<div class="client-info">
-<p class="name h6">
-                              Willie Bradley
-                            </p>
-<span class="designation">                            Founder
-</span>
+<!-- Review 2 -->
+<div class="ayuzaa-review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-title">Premium Quality &amp; Fast Results</div>
+<p class="review-text">"The packaging is absolutely premium - the aqua glass bottle with the gold cap feels luxurious. After just 4 weeks of using Liv Kavach, I feel more energetic and my digestion has improved noticeably. Ayuzaa has truly delivered on their promise of ancient wisdom meets modern care."</p>
+<div class="reviewer-info">
+<div class="reviewer-avatar">PA</div>
+<div>
+<p class="reviewer-name">Priya Agarwal</p>
+<p class="reviewer-label">Verified Buyer</p>
 </div>
 </div>
 </div>
-<div class="text h3">
-                        Ayuzaa Make Amazing Ayurvedic Drink Products
-                      </div>
-<p class="text">
-                        “The place is clean and new which is great, and they have comfortable couches to sit at. A perfect place to visit on a rainy autumn Sunday. Reasonably priced too. We’ll definitely be coming back!”
-                      </p>
-<div class="testimonial__card--review">
-<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
-<span aria-hidden="true" class="rating-star" style="--rating: 4; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="testimonial-list--item grid__item swiper-slide">
-<div class="testimonial-item single-testimonial-single-item">
-<div class="single-testimonial-single-item__content">
-<div class="testimonial__card--review">
-<div class="client-info-wrap">
-<div class="client-avator">
-<div class="media client-avator__media">
-<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti2.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti2.png?v=1724216361&amp;width=46 46w," width="120"/>
-</div>
-</div>
-<div class="client-info">
-<p class="name h6">
-                              Wendy Rose
-                            </p>
-<span class="designation">                            Product Manager
-</span>
-</div>
-</div>
-</div>
-<div class="text h3">
-                        Wonderful Taste &amp; Perfect Quality Ayurvedic Drink
-                      </div>
-<p class="text">
-                        “Fast delivery, excellent packaging and high quality products, what else can one wish for. The ayurvedic drink has a lovely flavour. This is a must go place if you are interested in or want to discover ayurvedic drinks!
-                      </p>
-<div class="testimonial__card--review">
-<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
-<span aria-hidden="true" class="rating-star" style="--rating: 5; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="testimonial-list--item grid__item swiper-slide">
-<div class="testimonial-item single-testimonial-single-item">
-<div class="single-testimonial-single-item__content">
-<div class="testimonial__card--review">
-<div class="client-info-wrap">
-<div class="client-avator">
-<div class="media client-avator__media">
-<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti4.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti4.png?v=1724216361&amp;width=46 46w," width="120"/>
-</div>
-</div>
-<div class="client-info">
-<p class="name h6">
-                              Kate Platonova
-                            </p>
-<span class="designation">                            Co-founder
-</span>
-</div>
-</div>
-</div>
-<div class="text h3">
-                        Gratitude for Producing Delicious Ayurvedic Drink
-                      </div>
-<p class="text">
-                        “A perfect place to visit on a rainy autumn Sunday. The place is clean and new which is great, and they have comfortable couches to sit at. Reasonably priced too. We’ll definitely be coming back!”
-                      </p>
-<div class="testimonial__card--review">
-<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
-<span aria-hidden="true" class="rating-star" style="--rating: 5; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="testimonial-list--item grid__item swiper-slide">
-<div class="testimonial-item single-testimonial-single-item">
-<div class="single-testimonial-single-item__content">
-<div class="testimonial__card--review">
-<div class="client-info-wrap">
-<div class="client-avator">
-<div class="media client-avator__media">
-<img alt="" height="120" loading="lazy" sizes="375px" src="//cha-time-demo.myshopify.com/cdn/shop/files/tsti3.png?v=1724216361&amp;width=375" srcset="//cha-time-demo.myshopify.com/cdn/shop/files/tsti3.png?v=1724216361&amp;width=46 46w," width="120"/>
-</div>
-</div>
-<div class="client-info">
-<p class="name h6">
-                              Linda Reid
-                            </p>
-<span class="designation">                            Ux Designer
-</span>
-</div>
-</div>
-</div>
-<div class="text h3">
-                        Gratitude for Producing Delicious Ayurvedic Drink
-                      </div>
-<p class="text">
-                        “This smart home assistant has become very important part of my daily routine. From managing my schedule and setting reminders to controlling smart home devices and answering questions.”
-                      </p>
-<div class="testimonial__card--review">
-<div aria-label="5.0 out of 5.0 stars" class="rating" role="img">
-<span aria-hidden="true" class="rating-star" style="--rating: 5; --rating-max: 5.0; --rating-decimal: 0; --color-icon: #88b44e;"></span>
-</div>
-</div>
-</div>
-</div>
+<!-- Review 3 -->
+<div class="ayuzaa-review-card">
+<div class="review-stars">★★★★★</div>
+<div class="review-title">Best Liver Wellness Supplement</div>
+<p class="review-text">"As a healthcare professional, I'm very particular about what I recommend. Liv Kavach's composition with Jatamansi, Kutki, and Kalmegh is scientifically backed. I now recommend this to all my patients for natural liver support. Excellent product by Ayuzaa!"</p>
+<div class="reviewer-info">
+<div class="reviewer-avatar">DM</div>
+<div>
+<p class="reviewer-name">Dr. Meera Kapoor</p>
+<p class="reviewer-label">Verified Buyer</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
+
 <div class="shopify-section" id="shopify-section-template--16126546411609__newsletter_LMfXcN">
 <link href="//cha-time-demo.myshopify.com/cdn/shop/t/3/assets/newsletter-signup.css?v=171564631213922918271723989399" media="all" rel="stylesheet" type="text/css"/>
 <style data-shopify="">
